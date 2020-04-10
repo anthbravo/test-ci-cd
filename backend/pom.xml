@@ -15,8 +15,8 @@
 	<description>Test project</description>
 
 	<properties>
-		<frontend.project.location>../frontend</frontend.project.location>
-		<frontend.project.nodeinstallation>../node_installation</frontend.project.nodeinstallation>
+		<frontend.project.location>frontend</frontend.project.location>
+		<frontend.project.nodeinstallation>node_installation</frontend.project.nodeinstallation>
 		<java.version>1.8</java.version>
 	</properties>
 

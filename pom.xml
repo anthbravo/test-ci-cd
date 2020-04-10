@@ -118,20 +118,7 @@
 							<resources>
 								<resource>
 									<directory>${project.basedir}/${frontend.project.location.build}</directory>
-									<!-- <filtering>true</filtering>
-									<excludes>
-						                <exclude>**/*.woff</exclude>
-						                <exclude>**/*.ttf</exclude>
-						            </excludes> -->
 								</resource>
-								<!-- <resource>
-									<directory>${project.basedir}/${frontend.project.location}/dist/frontend/</directory>
-									<filtering>false</filtering>
-									<includes>
-						                <include>**/*.woff</include>
-						                <include>**/*.ttf</include>
-						            </includes>
-								</resource> -->
 							</resources>
 						</configuration>
 					</execution>

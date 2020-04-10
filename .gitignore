@@ -29,3 +29,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+## Plugin frontend
+/node_installation/
+/src/main/resources/static/

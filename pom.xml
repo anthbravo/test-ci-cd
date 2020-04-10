@@ -128,7 +128,6 @@
 									<directory>${project.basedir}/${frontend.project.location}/dist/frontend/</directory>
 									<filtering>false</filtering>
 									<includes>
-									<!-- Fonts -->
 						                <include>**/*.woff</include>
 						                <include>**/*.ttf</include>
 						            </includes>

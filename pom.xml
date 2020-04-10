@@ -116,7 +116,7 @@
 							<outputDirectory>${project.basedir}/src/main/resources/static/</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${project.basedir}/${frontend.project.location}/dist/multizonas/</directory>
+									<directory>${project.basedir}/${frontend.project.location}/dist/frontend/</directory>
 									<filtering>true</filtering>
 									<excludes>
 						                <exclude>**/*.woff</exclude>
@@ -124,7 +124,7 @@
 						            </excludes>
 								</resource>
 								<resource>
-									<directory>${project.basedir}/${frontend.project.location}/dist/multizonas/</directory>
+									<directory>${project.basedir}/${frontend.project.location}/dist/frontend/</directory>
 									<filtering>false</filtering>
 									<includes>
 									<!-- Fonts -->

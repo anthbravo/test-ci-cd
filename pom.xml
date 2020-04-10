@@ -17,6 +17,7 @@
 	<properties>
 		<frontend.project.location>frontend</frontend.project.location>
 		<frontend.project.nodeinstallation>node_installation</frontend.project.nodeinstallation>
+		<frontend.project.location.build>frontend/dist/frontend</frontend.project.location.build>
 		<java.version>1.8</java.version>
 	</properties>
 
@@ -116,14 +117,14 @@
 							<outputDirectory>${project.basedir}/src/main/resources/static/</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${project.basedir}/${frontend.project.location}/dist/frontend/</directory>
-									<filtering>true</filtering>
+									<directory>${project.basedir}/${frontend.project.location.build}</directory>
+									<!-- <filtering>true</filtering>
 									<excludes>
 						                <exclude>**/*.woff</exclude>
 						                <exclude>**/*.ttf</exclude>
-						            </excludes>
+						            </excludes> -->
 								</resource>
-								<resource>
+								<!-- <resource>
 									<directory>${project.basedir}/${frontend.project.location}/dist/frontend/</directory>
 									<filtering>false</filtering>
 									<includes>
@@ -131,7 +132,7 @@
 						                <include>**/*.woff</include>
 						                <include>**/*.ttf</include>
 						            </includes>
-								</resource>
+								</resource> -->
 							</resources>
 						</configuration>
 					</execution>

@@ -1,6 +1,7 @@
 language: java
 git:
   depth: 3
+before_script: cd "backend"
 script:
   - mvn clean
   - mvn verify

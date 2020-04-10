@@ -15,6 +15,8 @@
 	<description>Test project</description>
 
 	<properties>
+		<frontend.project.location>frontend</frontend.project.location>
+		<frontend.project.nodeinstallation>node_installation</frontend.project.nodeinstallation>
 		<java.version>1.8</java.version>
 	</properties>
 
@@ -49,6 +51,94 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+			<plugin>
+				<groupId>com.github.eirslett</groupId>
+				<artifactId>frontend-maven-plugin</artifactId>
+				<version>1.5</version>
+				<configuration>
+					<workingDirectory>${frontend.project.location}</workingDirectory>
+					<installDirectory>${frontend.project.nodeinstallation}</installDirectory>
+				</configuration>
+				<executions>
+
+					<!-- install node and npm -->
+					<execution>
+						<id>install node and npm</id>
+						<goals>
+							<goal>install-node-and-npm</goal>
+						</goals>
+						<configuration>
+							<nodeVersion>v12.10.0</nodeVersion>
+							<npmVersion>6.11.3</npmVersion>
+						</configuration>
+					</execution>
+
+					<!-- install node modules -->
+					<execution>
+						<id>npm install --no-bin-links</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<phase>generate-resources</phase>
+					</execution>
+
+					<!-- build angular folder -> dist -->
+					<execution>
+						<id>ng build</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<phase>generate-resources</phase>
+						<configuration>
+							<!-- reference: package.json -->
+							<arguments>run build</arguments>
+						</configuration>
+					</execution>
+
+				</executions>
+
+			</plugin>
+
+			<!-- copy build angular "dist" to static folder -->
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.1.0</version>
+				<executions>
+					<execution>
+						<id>copy-angular-dist</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<overwrite>true</overwrite>
+							<outputDirectory>${project.basedir}/src/main/resources/static/</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${project.basedir}/${frontend.project.location}/dist/multizonas/</directory>
+									<filtering>true</filtering>
+									<excludes>
+						                <exclude>**/*.woff</exclude>
+						                <exclude>**/*.ttf</exclude>
+						            </excludes>
+								</resource>
+								<resource>
+									<directory>${project.basedir}/${frontend.project.location}/dist/multizonas/</directory>
+									<filtering>false</filtering>
+									<includes>
+									<!-- Fonts -->
+						                <include>**/*.woff</include>
+						                <include>**/*.ttf</include>
+						            </includes>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+
 		</plugins>
 	</build>
 

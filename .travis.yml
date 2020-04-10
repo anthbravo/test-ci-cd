@@ -1,0 +1,15 @@
+language: java
+git:
+  depth: 3
+before_script: cd "test-backend"
+script:
+  - mvn clean
+  - mvn verify
+deploy:
+  provide: heroku
+  skip-cleanup: true
+  keep-history: true
+  api_key: cc01b501-f889-457e-a71a-f79715c1ed42
+  app: test-micanasta-backend
+  on:
+    repo: anthbravo/test-ci-cd

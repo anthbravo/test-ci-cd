@@ -8,23 +8,39 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
 
   title: String = 'test';
+  tests;
 
   ngOnInit() {
     this.getHeartBeat();
+    this.getAllTest();
   }
 
 
   getHeartBeat() {
 
     window.fetch('/heartbeat')
-      .then(function (response) {
-        console.log(response)
+      .then((response) => {
+        console.log(response);
         return response.text();
       })
       .then((myJson) => {
-        console.log(this)
+        console.log(this);
         this.title = myJson;
-        
+
+      }).catch(() => null);
+  }
+
+  getAllTest() {
+
+    window.fetch('/test')
+      .then((response) => {
+        console.log(response)
+        return response.json();
+      })
+      .then((myJson) => {
+        console.log(this);
+        this.tests = myJson;
+
       }).catch(() => null);
   }
 
